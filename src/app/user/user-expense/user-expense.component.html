@@ -1,0 +1,102 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row mt-5">
+    <h3 class="text-primary mb-5 welcome">Welcome {{ user?.name }}</h3>
+    <div class="col col-lg-3 col-md-4 mb-lg-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="totalUserExpance">
+                    <span class="text-primary">Your</span> <small class="text-secondary"> Expenses</small> : <small class="">{{ totalExpenses | currency: "INR" }}</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col col-lg-3 col-md-4 mb-lg-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="totalUserExpance">
+                    <span class="text-primary">Name</span> <small class="text-secondary"> Mr./Ms.</small> : <small class="">{{ user.name }}</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col col-lg-3 col-md-4 mb-lg-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="totalUserExpance">
+                    <span class="text-primary">Email</span> <small class="text-secondary"> Id</small> : <small class="">{{ user.email }}</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="col col-lg-3 col-md-4 mb-lg-5">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="totalUserExpance">
+                    <span class="text-primary">Total</span> <small class="text-secondary"> Expenses</small> : <small>{{ totalExpendedAmountByAllUsers | currency: "INR" }}</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <span *ngIf="data < 0 || data =='' " class="text-center noo-expance">
+      No Expenses Found <small class="awak">😒</small> <br> <a routerLink="/add-expanse">Add Expense</a>
+    </span>
+    <div class="grid">
+      <div class="card shadow" *ngFor="let expense of data">
+        <div class="card-body">
+          <div class="d-flex mb-2">
+            <span class="text-danger delete" (click)="deleteExpense(expense.id)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 6h18"></path>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+              </svg>
+            </span>
+            <span
+              class="text-primary mx-3 edit"
+              routerLink="/edit-expanse/{{ expense.id }}"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                ></path>
+                <path
+                  d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                ></path>
+              </svg>
+            </span>
+          </div>
+          <div class="d-flex">
+            <h5 class="card-title text-primary">{{ expense.name }}</h5>
+            <p class="card-text mx-4 text-secondary amount">
+              {{ expense.amount | currency : "INR" }}
+            </p>
+          </div>
+          <p class="card-text text-black-50">{{ expense.date | date }}</p>
+          <p class="card-text description">{{ expense.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

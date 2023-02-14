@@ -1,0 +1,154 @@
+.container {
+  height: 100vh;
+  background-image: url("../../../assets/images/bg-2.svg") !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  /* background-color: #262323; */
+
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+.card {
+    /* gradient background */
+    background: linear-gradient(45deg, #ffffffb0, #f5f5f5a3);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border: 1px solid #054eed;
+  animation: 0.5s ease-in-out 0s 1 slideInFromBottom;
+}
+
+.welcome{
+    margin-bottom: 2rem;
+    font-size: 20px;
+    color: #000000a6;
+    font-weight: 500;
+    animation: 0.8s ease-out 0s 1 slideInFromLeft;
+    transition: 0.3s;
+}
+/* slideInFromLeft */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* slideInFromBottom */
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3  ) !important;
+  border: 1px solid #0150f9;
+  transform: scale(1.05);
+}
+
+.edit {
+    cursor: pointer;  
+    transition: 0.3s;
+    padding: 0 5px;
+}
+.edit:hover {
+    color: #0051ff !important;
+    transform: rotate(360deg);
+}
+
+.delete {
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 5px;
+}
+.delete:hover {
+    color: #ff0000 !important;
+    transform: rotate(360deg);
+}
+.description{
+    font-size: 14px;
+    color: #000000a6;
+    font-weight: 500;
+    /* text-align: center; */
+    margin-top: 10px;
+}
+.userName{
+    font-size: 14px;
+    color: #000000a6;
+    font-weight: 500;
+    /* text-align: center; */
+    margin-top: 10px;
+}
+.tableHeader{
+    font-size: 14px;
+    color: #000000a6;
+    font-weight: 500;
+    background-color: #f5f5f5;
+    margin-top: 10px;
+}
+tr{
+    animation: 0.5s ease-in-out 0s 1 slideInFromBottom;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.totalAmount{
+    font-size: 14px;
+    color: #000000a6;
+    font-weight: 500;
+    /* text-align: center; */
+    margin-top: 10px;
+    /* animate text */
+    animation: 0.5s ease-in-out 0s 1 slideInFromTop;
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.no-expance{
+  font-size: 20px!important;
+  color: #000000a6!important;
+  font-weight: 500!important;
+  text-align: center!important;
+  margin-top: 10px!important;
+  /* not found animation */
+  animation: 0.8s ease-out 0s 1 slideInFromBottom;
+}
+
+.no-expance:hover{
+  color: #000000a6;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.awak{
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+}

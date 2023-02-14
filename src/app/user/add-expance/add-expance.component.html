@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container" id="cont">
+  <div class="row  mt-5">
+    <div class="col-lg-6 col-md-3 col-12 d-none d-sm-block images">
+        <!-- image -->
+        <img [src]="expenceImg" width="400" height="400" class="img" alt="add-expanse">
+    </div> 
+    <div class="col-lg-4 col">
+       <div class="row my-3 formDiv d-flex align-items-center justify-content-center">
+        <div class="col-lg-10 col-md-6  shadow p-4 rounded add">
+            <h2 class="text-primary text-center addEx">Add Expanse</h2>
+            <form [formGroup]="form" (ngSubmit)="addExpanse()"> 
+                <div class="form-group mb-3">
+                    <label for="expanceName" class="text-secondary">Name</label>
+                    <input type="text" class="form-control " formControlName="name" id="expanceName" placeholder="Enter Expanse Name">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="expanceAmount" class="text-secondary">Amount</label>
+                    <input type="number" class="form-control" formControlName="amount" inputmode="numeric"   id="expanceAmount" placeholder="Enter Expanse Amount">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="expanceDate" class="text-secondary">Date</label>
+                    <input type="date" class="form-control" formControlName="date" id="expanceDate">
+                </div>
+                <!-- description -->
+                <div class="form-group mb-3">
+                    <label for="expanceDescription" class="text-secondary">Description</label>
+                    <textarea class="form-control" formControlName="description" id="expanceDescription" rows="3"></textarea>
+                </div>
+    
+                <button type="submit" class="btn btn-primary my-2 w-100 py-2">Submit</button>
+            </form>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row  mt-5">
+      <div class="col-lg-6 col-md-3 col-12 d-none d-sm-block">
+          <!-- image -->
+          <img [src]="expenceImg" class="images" alt="add-expanse">
+      </div> 
+      <div class="col-lg-6 col">
+         <div class="row my-3 formDiv d-flex align-items-center justify-content-center">
+          <div class="col-lg-10 col-md-6  shadow p-4 rounded">
+              <h1 class="text-primary text-center">Update Expanse</h1>
+              <form [formGroup]="form" (ngSubmit)="editExpense()"> 
+                  <div class="form-group mb-3">
+                      <label for="expanceName">Name</label>
+                      <input type="text" class="form-control" [ngClass]="{'is-invalid': submitted && f.name?.errors}" formControlName="name" [value]="expanse?.name" id="expanceName" placeholder="Enter Expanse Name">
+                        <div *ngIf="submitted && f.name?.errors" class="invalid-feedback">
+                            <div *ngIf="f.name?.errors.required">Please input an expanse name</div>
+                            <div *ngIf="f.name?.errors.name">Name is Invalid</div>
+                        </div>
+                    </div>
+                  <div class="form-group mb-3">
+                      <label for="expanceAmount">Amount</label>
+                      <input type="number" class="form-control" id="expanceAmount" [ngClass]="{'is-invalid' : submitted && f.amount?.errors}" formControlName="amount" [value]="expanse?.amount" placeholder="Enter Expanse Amount">
+                    <div class="invalid-feedback" *ngIf="submitted && f.amount?.errors">
+                        <div *ngIf="f.amount?.errors.required">Please input an amount</div>
+                        <div *ngIf="f.amount?.errors.amount">An amount is invalid</div>
+                    </div>
+                    </div>
+                  <div class="form-group mb-3">
+                      <label for="expanceDate">Date</label>
+                      <input type="date" class="form-control" formControlName="date" [ngClass]="{'is-invalid' : submitted && f.date?.errors}" [value]="expanse?.date | date:'yyyy-MM-dd' " id="expanceDate">
+                        <div class="invalid-feedback" *ngIf="submitted && f.date?.errors">
+                            <div *ngIf="f.date?.errors.required">Please input a date</div>
+                            <div *ngIf="f.date?.errors.date">Date is Invalid</div>
+                        </div>
+                    </div>
+                  <!-- description -->
+                  <div class="form-group mb-3">
+                      <label for="expanceDescription">Description</label>
+                      <textarea class="form-control" formControlName="description" [ngClass]="{'is-invalid' : submitted && f.description?.errors}"  [value]="expanse?.description" id="expanceDescription" rows="3"></textarea>
+                    <div class="invalid-feedback" *ngIf="submitted && f.description?.errors">
+                        <div *ngIf="f.description?.errors.required">Please input the description</div>
+                        <div *ngIf="f.description?.errors.description">Description is Invalid</div>
+                    </div>
+                    </div>
+                  <button type="submit" class="btn btn-primary my-2 w-100 py-2">Submit</button>
+              </form>
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+  
